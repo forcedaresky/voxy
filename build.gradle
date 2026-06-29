@@ -3,7 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-def isInGHA = System.getenv("GITHUB_ACTIONS") == "true"
+//def isInGHA = System.getenv("GITHUB_ACTIONS") == "true"
+def isInGHA = true
 
 version = project.mod_version
 group = project.maven_group
@@ -106,8 +107,8 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
     //TODO: this is to eventually not need sodium installed as atm its just used for parsing shaders
-    modRuntimeOnlyMsk "maven.modrinth:sodium:mc1.21.1-0.8.12-alpha.3-fabric"
-    modCompileOnly "maven.modrinth:sodium:mc1.21.1-0.8.12-alpha.3-fabric"
+    modRuntimeOnlyMsk "maven.modrinth:sodium:mc1.21.1-0.8.12-beta.2-fabric"
+    modCompileOnly "maven.modrinth:sodium:mc1.21.1-0.8.12-beta.2-fabric"
 
     modImplementation("maven.modrinth:lithium:mc1.21.1-0.15.0-fabric")
 
