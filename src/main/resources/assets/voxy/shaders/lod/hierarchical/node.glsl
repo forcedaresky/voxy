@@ -66,10 +66,6 @@ bool hasRequested(in UnpackedNode node) {
     return (node.flags&1u) != 0u;
 }
 
-bool childrenKnownEmpty(in UnpackedNode node) {
-    return (node.flags&2u) != 0u;
-}
-
 uint getMesh(in UnpackedNode node) {
     return node.meshPtr;
 }
@@ -99,6 +95,7 @@ uint getTransformIndex(in UnpackedNode node) {
 
 void markRequested(inout UnpackedNode node) {
     node.flags |= 1u;
+    nodes[node.nodeId].z |= 1u<<24;
 }
 
 void debugDumpNode(in UnpackedNode node) {
